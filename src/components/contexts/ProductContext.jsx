@@ -44,9 +44,6 @@ const ProductContextProvider = ({children}) => {
 
 
 
-
-
-
     return (
         <productContext.Provider value={{
             products: state.products,

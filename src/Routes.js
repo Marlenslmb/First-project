@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import ProductContextProvider from './contexts/ProductContext';
-import Navbar from './Header/Navbar';
+import ProductContextProvider from './components/contexts/ProductContext';
+import Navbar from './components/Header/Navbar';
 
 const Routes = () => {
     return (
