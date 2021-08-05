@@ -7,6 +7,9 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { useHistory } from 'react-router-dom';
+import { useContext } from 'react';
+import { productContext } from '../contexts/ProductContext';
 
 const useStyles = makeStyles({
   root: {
@@ -18,7 +21,9 @@ const useStyles = makeStyles({
 });
 
 export default function ProductCard() {
+  let history = useHistory();
   const classes = useStyles();
+  const { addProduct } = useContext(productContext)
 
   return (
     <Card className={classes.root}>
