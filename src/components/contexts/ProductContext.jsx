@@ -45,6 +45,7 @@ const ProductContextProvider = ({children}) => {
             console.log(error);
             return error
         }
+        getProducts(newProduct)
     }
 
     const deleteProduct = async (id, history) => {

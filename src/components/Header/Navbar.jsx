@@ -15,6 +15,7 @@ import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import { Link } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -164,19 +165,13 @@ export default function Navbar() {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static" style={{background: '#44814e'}}>
+      <AppBar position="static" style={{background: 'rgba(19, 16, 16, 0.932)'}}>
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            BOOK STORE
-          </Typography>
+          <Link to="/">
+            <Typography className={classes.title} variant="h6" noWrap>
+              LIB-RAR(Y)e
+            </Typography>
+          </Link>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
