@@ -1,4 +1,4 @@
-import { IconButton, makeStyles, Paper, Typography } from '@material-ui/core';
+import { makeStyles, Paper, Typography } from '@material-ui/core';
 import React, { useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
