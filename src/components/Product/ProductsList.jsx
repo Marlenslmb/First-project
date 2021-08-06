@@ -4,17 +4,34 @@ import { useContext, useEffect } from 'react';
 import ProductCard from './ProductCard';
 import { useHistory } from 'react-router-dom';
 import { productContext } from '../contexts/ProductContext';
-
+import { useState } from 'react';
+import { Pagination } from '@material-ui/lab';
 
 
 const ProductList = () => {
     let history = useHistory()
-    const {products, getProducts} = useContext(productContext)
+    const {products, getProducts, paginatedPages} = useContext(productContext)
+    const [page, setPage] = useState(getPage())
 
     useEffect(() => {
         getProducts(history)
     }, [])
 
+    function getPage(e, page){
+        const search = new URLSearchParams(history.location.search)
+        if(!search.get('_page')){
+            return 1
+        }
+        return search.get('_page')
+    }
+
+    const handlePage = (e,pageVal) => {
+        const search = new URLSearchParams(history.location.search)
+        search.set('_page', pageVal)
+        history.push(`${history.location.pathname}?${search.toString()}`)
+        getProducts(history)
+        setPage(pageVal)
+    }
 
     return (
         <>
@@ -27,6 +44,14 @@ const ProductList = () => {
                     ) : (<h1>Wait mzfk...</h1>)
                 }
             </Grid>
+            <div>
+                <Pagination
+                    count={paginatedPages}
+                    color="primary"
+                    onChange={handlePage}
+                    page={+page}
+                />
+            </div>
         </>
     );
 };

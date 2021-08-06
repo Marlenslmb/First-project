@@ -1,4 +1,4 @@
-import { IconButton, makeStyles, Paper, Typography } from '@material-ui/core';
+import { makeStyles, Paper, Typography } from '@material-ui/core';
 import React from 'react';
 import { useEffect } from 'react';
 import { useContext } from 'react';
@@ -25,7 +25,7 @@ const Detail = () => {
 
     return (
          <Paper elevation={3} className={classes.paper}>
-            <Typography variant='h2' style={{textAlign: 'center'}}>Detail</Typography>
+            <Typography variant='h2' style={{textAlign: 'center'}}>Подробнее:</Typography>
             {
                 detail ? (
                     <div style={{display: 'flex', justifyContent: 'space-between'}}>
@@ -40,9 +40,10 @@ const Detail = () => {
                             justifyContent: 'center'
                         }}>
                             <Typography variant='h3' gutterBottom>{detail.title}</Typography>
+                            <Typography variant='h4' gutterBottom>{detail.author}</Typography>
                             <Typography variant='subtitle1' gutterBottom>{detail.type}</Typography>
                             <Typography variant='body1' gutterBottom>{detail.description}</Typography>
-                            <Typography variant='h4' gutterBottom>${detail.price}</Typography>
+                            <Typography variant='h4' gutterBottom>{detail.price}р.</Typography>
 
                         </div>
                     </div>

@@ -8,13 +8,16 @@ import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useContext } from 'react';
+import { productContext } from '../contexts/ProductContext';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -83,10 +86,25 @@ const useStyles = makeStyles((theme) => ({
 export default function Navbar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const history = useHistory()
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
+  const [searchVal, setSearchVal] = useState(getSearchVal() || '')
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const { getProducts } = useContext(productContext)
+
+  function getSearchVal(){
+    const search = new URLSearchParams(history.location.search)
+    return search.get('q')
+  }
+
+  const handleValue = (e) => {
+    const search = new URLSearchParams(history.location.search)
+    search.set('q', e.target.value)
+    history.push(`${history.location.pathname}?${search.toString()}`)
+    setSearchVal(e.target.value)
+    getProducts(history)
+  }
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -164,19 +182,11 @@ export default function Navbar() {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static" style={{background: '#44814e'}}>
+      <AppBar position="static" style={{background: 'rgba(19, 16, 16, 0.932)'}}>
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            BOOK STORE
-          </Typography>
+              <Typography className={classes.title} variant="h5" noWrap >
+                    LIBRARY
+              </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -188,6 +198,8 @@ export default function Navbar() {
                 input: classes.inputInput,
               }}
               inputProps={{ 'aria-label': 'search' }}
+              value = {searchVal}
+              onChange = {handleValue}
             />
           </div>
           <div className={classes.grow} />

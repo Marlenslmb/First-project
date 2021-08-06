@@ -1,0 +1,14 @@
+.card{
+    margin: 20px 5px;
+}
+/* .list-group-item{
+    background-color: orange; */
+    /* background: none;
+    border: none; */
+/* } */
+.card:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: 1s;
+  }

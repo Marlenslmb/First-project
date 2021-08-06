@@ -9,13 +9,16 @@ const INIT_STATE = {
     products: [],
     edit: null,
     detail: {},
+    paginatedPages: 1,
 }
 
 const reducer = (state = INIT_STATE, action) => {
     switch(action.type) {
-        case "GET_PRODUCT": return {
+        case "GET_PRODUCT": 
+        return {
             ...state, 
-            products: action.payload
+            products: action.payload.data,
+            paginatedPages: Math.ceil(action.payload.headers["x-total-count"] / 6)
         }
         case "GET_EDIT_PRODUCT":
             return {...state, edit: action.payload}
@@ -29,8 +32,11 @@ const reducer = (state = INIT_STATE, action) => {
 const ProductContextProvider = ({children}) => {
     const [state, dispatch] = useReducer(reducer, INIT_STATE)
 
-    const getProducts = async () => {
-        let {data} = await axios(`${API}/products`)
+    const getProducts = async (history) => {
+        const search = new URLSearchParams(history.location.search)
+        search.set('_limit', 12)
+        history.push(`${history.location.pathname}?${search.toString()}`)
+        let data = await axios(`${API}/products${window.location.search}`)
         dispatch({
             type: "GET_PRODUCT",
             payload: data
@@ -40,11 +46,13 @@ const ProductContextProvider = ({children}) => {
     const addProduct = async (newProduct) => {
         try{
             let res = await axios.post(`${API}/products`, newProduct)
+            getProducts()
             return res
         }catch(error){
             console.log(error);
             return error
         }
+        
     }
 
     const deleteProduct = async (id, history) => {
@@ -78,11 +86,13 @@ const ProductContextProvider = ({children}) => {
         })
     }
 
+
     return (
         <productContext.Provider value={{
             products: state.products,
             edit: state.edit,
             detail: state.detail,
+            paginatedPages: state.paginatedPages,
             addProduct,
             getProducts,
             deleteProduct,
