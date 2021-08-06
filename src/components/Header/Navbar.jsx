@@ -14,6 +14,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -163,7 +164,7 @@ export default function Navbar() {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static" style={{background: 'aqua'}}>
+      <AppBar position="static" style={{background: '#44814e'}}>
         <Toolbar>
           <IconButton
             edge="start"
@@ -174,7 +175,7 @@ export default function Navbar() {
             <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            Book-STORE
+            BOOK STORE
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
@@ -191,16 +192,11 @@ export default function Navbar() {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
+          <IconButton color="inherit">
+                <Badge color="secondary">
+                  <ShoppingBasketIcon/>
+                </Badge>
+              </IconButton>
             <IconButton
               edge="end"
               aria-label="account of current user"

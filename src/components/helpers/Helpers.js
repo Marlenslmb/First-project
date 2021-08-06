@@ -1,2 +1,1 @@
-export const API = "http://localhost:5000"
-export const AUTH_API = 'https://intense-retreat-64750.herokuapp.com/auth';
+export const API = "http://localhost:8000"
