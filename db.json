@@ -1,5 +1,22 @@
 {
-    "products":[
-        
-    ]
+  "products": [
+    {
+      "title": "Iphone 12",
+      "autor": "asdasdasd",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "type": "iphone",
+      "image": "https://cdn.alzashop.com/Foto/f16/RI/RI035b1.jpg",
+      "price": "1400",
+      "id": 1
+    },
+    {
+      "image": "https://images.hdqwalls.com/wallpapers/women-with-books-in-library-dp.jpg",
+      "title": "Kattya",
+      "author": "Maga",
+      "price": "2000",
+      "type": "ero",
+      "description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "id": 2
+    }
+  ]
 }
