@@ -6,3 +6,11 @@
 .buttons:hover{
     color: yellow;
 }
+.filter {
+    width: 300px !important;
+    height: 40px;
+    margin-top: 10px;
+    background-color: #505050;
+    color:#ccc;
+    border: none;
+}

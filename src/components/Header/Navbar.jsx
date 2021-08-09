@@ -20,6 +20,9 @@ import { useContext } from 'react';
 import { productContext } from '../contexts/ProductContext';
 import { Link } from 'react-router-dom';
 import './navbar.css'
+import { Form } from 'react-bootstrap';
+import { filterContext } from '../contexts/Filter';
+
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -187,7 +190,7 @@ export default function Navbar() {
     <div className={classes.grow}>
       <AppBar position="static" style={{background: 'rgba(19, 16, 16, 0.932)'}}>
         <Toolbar>
-              <Typography className={classes.title} variant="h5" noWrap >
+              <Typography className={classes.title} variant="h5" noWrap color='secondary'>
                     LIBRARY
               </Typography>
           <div className={classes.search}>
@@ -207,8 +210,13 @@ export default function Navbar() {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-          <IconButton color="inherit">
-                <Badge color="secondary">
+          <Link to='/add'>
+              <IconButton color="secondary">
+                &#10010;
+              </IconButton>
+            </Link>
+          <IconButton color="secondary">
+                <Badge>
                   <ShoppingBasketIcon/>
                 </Badge>
               </IconButton>
@@ -218,7 +226,7 @@ export default function Navbar() {
               aria-controls={menuId}
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
-              color="inherit"
+              color="secondary"
             >
               <AccountCircle />
             </IconButton>

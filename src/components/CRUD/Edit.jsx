@@ -2,6 +2,7 @@ import Modal from '@material-ui/core/Modal';
 import { productContext } from '../contexts/ProductContext';
 import { Button, IconButton, makeStyles, TextField } from '@material-ui/core';
 import React, { useContext, useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 
 function rand() {
@@ -36,7 +37,7 @@ export default function Edit({open, handleClose}) {
   const [modalStyle] = React.useState(getModalStyle);
   const rootRef = React.useRef(null);
   const history = useHistory()
-  const {edit, editProduct, saveEditProduct} = useContext(productContext)
+  const {edit, saveEditProduct} = useContext(productContext)
   const [values, setValues] = useState(null)
 
   useEffect(() => {

@@ -1,0 +1,18 @@
+.filterleft{
+    background-color: rgba(19, 16, 16, 0.933) !important;
+    color: rgb(245 0 81) !important;
+    margin: 0 !important;
+}
+.MuiPaper-rounded{
+    background-color: rgba(19, 16, 16, 0.933) !important;;
+    color: rgb(245 0 81) !important;
+    width: 450px !important;
+    height: 40px !important;
+    margin: 0 !important;
+}
+.MuiFormCroup-root{
+    height: 20px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    
+}
