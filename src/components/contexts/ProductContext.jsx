@@ -67,9 +67,10 @@ const ProductContextProvider = ({children}) => {
         })
     }
 
-    const saveEditProduct = async (updatedProduct) => {
+    const saveEditProduct = async (updatedProduct, history) => {
         try{
             let res = await axios.patch(`${API}/products/${updatedProduct.id}`, updatedProduct)
+            getProducts(history)
             return res
         }catch (error){
             console.log(error);

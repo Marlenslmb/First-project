@@ -18,7 +18,8 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useContext } from 'react';
 import { productContext } from '../contexts/ProductContext';
-import { Link } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import './navbar.css'
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -135,8 +136,9 @@ export default function Navbar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <Link to='/registration'><MenuItem className='buttons' color='secondary'>Регистрация</MenuItem></Link>
+      <Link to='/login'><MenuItem onClick={handleMenuClose} className='buttons' color='secondary'>Войти</MenuItem></Link>
+      <MenuItem onClick={handleMenuClose} className='buttons' color='secondary'>&#10006;</MenuItem>
     </Menu>
   );
 
@@ -220,14 +222,6 @@ export default function Navbar() {
             >
               <AccountCircle />
             </IconButton>
-            <IconButton color='secondary'>
-              Регистрация
-            </IconButton>
-              <Link to="/login">
-                <IconButton color='secondary'>
-                  Войти
-              </IconButton>
-              </Link>
           </div>
           <div className={classes.sectionMobile}>
             <IconButton
