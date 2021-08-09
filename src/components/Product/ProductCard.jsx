@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 
 export default function ProductCard({item, history}) {
-  const {deleteProduct, editProduct} = useContext(productContext)
+  const {deleteProduct, editProduct,} = useContext(productContext)
 
   const [open, setOpen] = React.useState(false);
 
@@ -40,7 +40,7 @@ export default function ProductCard({item, history}) {
     <Edit open={open} handleClose={handleClose} handleOpen={handleOpen} />
     <Card.Body>
       <Card.Link  style={{color: 'black', textDecoration: 'none'}}>
-        <Button onClick={handleOpen} style={{backgroundColor: 'rgba(19, 16, 16, 0.932)'}}>
+        <Button onClick={()=>handleOpen()} style={{backgroundColor: 'rgba(19, 16, 16, 0.932)'}}>
           &#9997;
         </Button>
       </Card.Link>

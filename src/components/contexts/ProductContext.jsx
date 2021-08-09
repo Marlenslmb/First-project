@@ -46,7 +46,6 @@ const ProductContextProvider = ({children}) => {
     const addProduct = async (newProduct) => {
         try{
             let res = await axios.post(`${API}/products`, newProduct)
-            getProducts()
             return res
         }catch(error){
             console.log(error);

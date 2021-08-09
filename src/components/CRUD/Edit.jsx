@@ -1,6 +1,6 @@
 import Modal from '@material-ui/core/Modal';
 import { productContext } from '../contexts/ProductContext';
-import { Button, IconButton, makeStyles, TextField } from '@material-ui/core';
+import { Button, IconButton, Link, makeStyles, TextField } from '@material-ui/core';
 import { useHistory, useParams } from 'react-router-dom';
 import React, { useContext, useEffect, useState } from 'react';
 
@@ -36,14 +36,8 @@ export default function Edit({open, handleClose}) {
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
   const rootRef = React.useRef(null);
-  let {id} = useParams();
-  let history = useHistory();
   const {edit, editProduct, saveEditProduct} = useContext(productContext)
-  const [values, setValues] = useState({})
-
-  useEffect(() => {
-    editProduct(id)
-  },[id])
+  const [values, setValues] = useState(null)
 
   useEffect(() => {
     setValues(edit)
@@ -60,7 +54,6 @@ export default function Edit({open, handleClose}) {
 
   const handleSave = () => {
     saveEditProduct(values)
-    history.push('/')
   }
 
     const body = (
@@ -82,13 +75,13 @@ export default function Edit({open, handleClose}) {
                             multiline
                             rows={4}
                         />
-                        <IconButton aria-label="share" onClick={handleSave}>
-                            <Button variant="contained" color="primary">Сохранить</Button>
+                        <IconButton aria-label="share" onClick={ handleSave()}>
+                            <Button variant="contained" color="primary" onClick={() => handleClose()} >Сохранить</Button>
                         </IconButton>
                     </form>
                 ) : (<h1>Wait mzfk...</h1> )
+                
             }
-        <Edit />
       </div>
     );
 

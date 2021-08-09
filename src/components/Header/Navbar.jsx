@@ -18,6 +18,7 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useContext } from 'react';
 import { productContext } from '../contexts/ProductContext';
+import { Link } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -219,6 +220,14 @@ export default function Navbar() {
             >
               <AccountCircle />
             </IconButton>
+            <IconButton color='secondary'>
+              Регистрация
+            </IconButton>
+              <Link to="/login">
+                <IconButton color='secondary'>
+                  Войти
+              </IconButton>
+              </Link>
           </div>
           <div className={classes.sectionMobile}>
             <IconButton
