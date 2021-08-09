@@ -47,7 +47,7 @@ const ProductList = () => {
             <div>
                 <Pagination
                     count={paginatedPages}
-                    color="primary"
+                    color="secondary"
                     onChange={handlePage}
                     page={+page}
                 />

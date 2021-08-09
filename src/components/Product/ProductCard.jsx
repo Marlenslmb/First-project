@@ -4,17 +4,17 @@ import { productContext } from '../contexts/ProductContext';
 import React from 'react';
 import './Product.css';
 import Edit from '../CRUD/Edit'
-import Detail from './Detail';
 import { Link } from 'react-router-dom';
 
 
 export default function ProductCard({item, history}) {
-  const {deleteProduct, detail, getDetail} = useContext(productContext)
+  const {deleteProduct, editProduct,} = useContext(productContext)
 
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
     setOpen(true);
+    editProduct(item.id)
   };
 
   const handleClose = () => {
@@ -40,7 +40,7 @@ export default function ProductCard({item, history}) {
     <Edit open={open} handleClose={handleClose} handleOpen={handleOpen} />
     <Card.Body>
       <Card.Link  style={{color: 'black', textDecoration: 'none'}}>
-        <Button onClick={handleOpen} style={{backgroundColor: 'rgba(19, 16, 16, 0.932)'}}>
+        <Button onClick={()=>handleOpen()} style={{backgroundColor: 'rgba(19, 16, 16, 0.932)'}}>
           &#9997;
         </Button>
       </Card.Link>
