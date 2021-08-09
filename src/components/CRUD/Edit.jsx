@@ -35,6 +35,7 @@ export default function Edit({open, handleClose}) {
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
   const rootRef = React.useRef(null);
+  const history = useHistory()
   const {edit, editProduct, saveEditProduct} = useContext(productContext)
   const [values, setValues] = useState(null)
 
@@ -52,7 +53,7 @@ export default function Edit({open, handleClose}) {
   }
 
   const handleSave = () => {
-    saveEditProduct(values)
+    saveEditProduct(values, history)
   }
 
     const body = (
@@ -74,7 +75,7 @@ export default function Edit({open, handleClose}) {
                             multiline
                             rows={4}
                         />
-                        <IconButton aria-label="share" onClick={ handleSave()}>
+                        <IconButton aria-label="share" onClick={() => handleSave()}>
                             <Button variant="contained" color="primary" onClick={() => handleClose()} >Сохранить</Button>
                         </IconButton>
                     </form>

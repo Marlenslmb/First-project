@@ -4,16 +4,7 @@ import { AUTHOR_API } from '../helpers/Helpers';
 
 export const mailContext = React.createContext()
 
-const INIT_STATE = {}
-
-const reducer = (state = INIT_STATE, action) => {
-    switch(action.type){
-        default: return state
-    }
-}
-
 const MailContext = ({children}) => {
-    const [state, dispatch] = useReducer(reducer, INIT_STATE)
 
     async function clientRegister(e, history){
         e.preventDefault();
@@ -32,15 +23,15 @@ const MailContext = ({children}) => {
         }
     }
     async function clientLogin (e, history) {
-        e.prevenDefault();
+        e.preventDefault();
         const clientLogin = {
             email: e.target[0].value,
             password: e.target[2].value
         }
+        console.log(clientLogin)
         try{
             let datas = await axios.post(`${AUTHOR_API}/login`, clientLogin)
             history.push('/')
-            return datas
         }catch(e){
             alert('ERRRROORRR')
         }
