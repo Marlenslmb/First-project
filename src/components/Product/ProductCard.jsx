@@ -4,17 +4,17 @@ import { productContext } from '../contexts/ProductContext';
 import React from 'react';
 import './Product.css';
 import Edit from '../CRUD/Edit'
-import Detail from './Detail';
 import { Link } from 'react-router-dom';
 
 
 export default function ProductCard({item, history}) {
-  const {deleteProduct, detail, getDetail} = useContext(productContext)
+  const {deleteProduct, editProduct} = useContext(productContext)
 
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
     setOpen(true);
+    editProduct(item.id)
   };
 
   const handleClose = () => {

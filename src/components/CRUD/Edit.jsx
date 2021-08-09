@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function Edit({open, handleClose, handleOpen}) {
+export default function Edit({open, handleClose}) {
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
   const rootRef = React.useRef(null);
