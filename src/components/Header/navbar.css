@@ -6,3 +6,6 @@
 .buttons:hover{
     color: yellow;
 }
+.poisk{
+    color: red !important;
+}

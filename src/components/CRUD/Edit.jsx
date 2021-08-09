@@ -1,7 +1,7 @@
 import Modal from '@material-ui/core/Modal';
 import { productContext } from '../contexts/ProductContext';
-import { Button, IconButton, Link, makeStyles, TextField } from '@material-ui/core';
-import { useHistory, useParams } from 'react-router-dom';
+import { Button, IconButton, makeStyles, TextField } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 import React, { useContext, useEffect, useState } from 'react';
 
 
@@ -37,7 +37,7 @@ export default function Edit({open, handleClose}) {
   const [modalStyle] = React.useState(getModalStyle);
   const rootRef = React.useRef(null);
   const history = useHistory()
-  const {edit, editProduct, saveEditProduct} = useContext(productContext)
+  const {edit, saveEditProduct} = useContext(productContext)
   const [values, setValues] = useState(null)
 
   useEffect(() => {

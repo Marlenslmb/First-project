@@ -31,8 +31,9 @@ const ProductList = () => {
         history.push(`${history.location.pathname}?${search.toString()}`)
         getProducts(history)
         setPage(pageVal)
+        
     }
-
+    console.log(page)
     return (
         <>
             <Grid container spacing={3} justify="space-evenly" style={{marginTop: '0px'}}>
