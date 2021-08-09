@@ -1,7 +1,6 @@
 import Modal from '@material-ui/core/Modal';
 import { productContext } from '../contexts/ProductContext';
-import { Button, IconButton, Link, makeStyles, TextField } from '@material-ui/core';
-import { useHistory, useParams } from 'react-router-dom';
+import { Button, IconButton, makeStyles, TextField } from '@material-ui/core';
 import React, { useContext, useEffect, useState } from 'react';
 
 
