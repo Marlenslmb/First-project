@@ -18,7 +18,7 @@ const reducer = (state = INIT_STATE, action) => {
         return {
             ...state, 
             products: action.payload.data,
-            paginatedPages: Math.ceil(action.payload.headers["x-total-count"] / 6)
+            paginatedPages: Math.ceil(action.payload.headers["x-total-count"] / 12)
         }
         case "GET_EDIT_PRODUCT":
             return {...state, edit: action.payload}
