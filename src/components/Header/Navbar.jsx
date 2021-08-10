@@ -190,7 +190,7 @@ export default function Navbar() {
     <div className={classes.grow}>
       <AppBar position="static" style={{background: 'rgba(19, 16, 16, 0.932)'}}>
         <Toolbar>
-              <Typography className={classes.title} variant="h5" noWrap color='secondary'>
+              <Typography className={classes.title} variant="h5" noWrap color="secondary">
                     LIBRARY
               </Typography>
           <div className={classes.search}>
@@ -203,9 +203,10 @@ export default function Navbar() {
                 root: classes.inputRoot,
                 input: classes.inputInput,
               }}
-              inputProps={{ 'aria-label': 'search' }}
+              inputProps={{ 'aria-label': 'search'}}
               value = {searchVal}
               onChange = {handleValue}
+              className="poisk"
             />
           </div>
           <div className={classes.grow} />

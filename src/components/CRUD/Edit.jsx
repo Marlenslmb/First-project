@@ -1,8 +1,8 @@
 import Modal from '@material-ui/core/Modal';
 import { productContext } from '../contexts/ProductContext';
 import { Button, IconButton, makeStyles, TextField } from '@material-ui/core';
-import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
 
 
 function rand() {

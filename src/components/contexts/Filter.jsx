@@ -1,38 +1,36 @@
-import React, {useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import { useHistory } from 'react-router-dom';
+import { productContext } from './ProductContext';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
-import { Grid, Paper, makeStyles, Button } from '@material-ui/core';
+import { Grid, makeStyles, Button } from '@material-ui/core';
 import Slider from '@material-ui/core/Slider';
-import { useHistory } from 'react-router-dom';
-import { productContext } from './ProductContext';
-import './filter.css'
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-const useStyles = makeStyles(theme => ({
-    paper: {
-        padding: theme.spacing(1),
-        color: theme.palette.text.secondary,
-        marginRight: '-450px',
-        marginBottom: '5px',
-        width:'400px'
-        // minWidth: '170px',  //TODO0 NEW (from 19.05.2021)
-        // maxWidth: '350px'  //TODO0 NEW (from 19.05.2021)
-    }
-}))
+const useStyles = makeStyles((theme) => ({
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+}));
 
-const SideBar = () => {
-    const history = useHistory()
-    const classes = useStyles()
-    const {getProducts} = useContext(productContext)
-    const [type, setType] = useState(getType())
-    const [price, setPrice] = useState(getPrice())
+const Sortirovka = () => {
+  const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+  const history = useHistory()
+  const {getProducts} = useContext(productContext)
+  const [type, setType] = useState(getType())
+  const [price, setPrice] = useState(getPrice())
 
     function getPrice(){
         const search = new URLSearchParams(history.location.search)
@@ -73,45 +71,56 @@ const SideBar = () => {
         setPrice(getPrice())
     }
 
-    return (
-        <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Typography className={classes.heading}>Accordion 1</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-            <Grid item md={3}>
-                <Paper elevation={2} className={classes.paper}>  
-                    <FormControl component="fieldset">
-                    <FormLabel component="legend">Type</FormLabel>
-                    <RadioGroup aria-label="gender" name="gender1" value={type} onChange={handleChangeType}>
-                        <FormControlLabel value="Ужас" control={<Radio />} label="Ужас" />
-                        <FormControlLabel value="Роман" control={<Radio />} label="Роман" />
-                        <FormControlLabel value="all" control={<Radio />} label="All" />
-                    </RadioGroup>
-                    </FormControl>
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
 
-                    <Grid>
-                        <Slider
-                            value={price}
-                            onChange={handleChangePrice}
-                            aria-labelledby="discrete-slider"
-                            valueLabelDisplay="auto"
-                            min={50}
-                            max={2000}
-                        />
-                        <Button variant='outlined' color='primary' onClick={handleDrop} >Drop</Button>
-                    </Grid>
-                </Paper>
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  return (
+    <div>
+      <Button onClick={handleClickOpen}>Открыть сортировку</Button>
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Выберите категорию</DialogTitle>
+        <DialogContent>
+          <form className={classes.container}>
+            <FormControl component="fieldset">
+                <FormLabel component="legend">Жанры</FormLabel>
+                <RadioGroup aria-label="gender" name="gender1" value={type} onChange={handleChangeType}>
+                    <FormControlLabel value="Роман" control={<Radio />} label="Роман" />
+                    <FormControlLabel value="Ужас" control={<Radio />} label="Ужасы" />
+                    <FormControlLabel value="Литература" control={<Radio />} label="Литература" />
+                    <FormControlLabel value="Детектив" control={<Radio />} label="Детективы" />
+                    <FormControlLabel value="Зарубежный роман" control={<Radio />} label="Зарубежный роман" />
+                    <FormControlLabel value="all" control={<Radio />} label="Все" />
+                </RadioGroup>
+                </FormControl>
+            <Grid>
+                <Slider
+                    value={price}
+                    onChange={handleChangePrice}
+                    aria-labelledby="discrete-slider"
+                    valueLabelDisplay="auto"
+                    min={50}
+                    max={2000}
+                />
+                <Button variant='outlined' color='primary' onClick={handleDrop} >Сбросить</Button>
             </Grid>
-        </AccordionDetails>
-      </Accordion>
-        
-    );
-    
-};
+          </form>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            Отмена
+          </Button>
+          <Button onClick={handleClose} color="primary">
+            Ok
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </div>
+  );
+}
 
-export default SideBar;
+export default Sortirovka
