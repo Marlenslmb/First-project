@@ -76,6 +76,7 @@ const ProductContextProvider = ({children}) => {
             console.log(error);
             return error
         }
+        
     }
 
     const getDetail = async (id) => {

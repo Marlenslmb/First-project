@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useReducer } from 'react';
+import React from 'react';
 import { AUTHOR_API } from '../helpers/Helpers';
 
 export const mailContext = React.createContext()

@@ -20,6 +20,9 @@ import { useContext } from 'react';
 import { productContext } from '../contexts/ProductContext';
 import { Link } from 'react-router-dom';
 import './navbar.css'
+import { Form } from 'react-bootstrap';
+import { filterContext } from '../contexts/Filter';
+
 
 const useStyles = makeStyles((theme) => ({
   grow: {
