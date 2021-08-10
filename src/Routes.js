@@ -9,6 +9,7 @@ import Edit from './components/CRUD/Edit'
 import Login from './components/Authoriz/Login';
 import MailContext from './components/contexts/MailContext';
 import Registration from './components/Authoriz/Registration';
+import Cart from './components/Korzina/Korzina';
 
 const Routes = () => {
     return (
@@ -19,6 +20,7 @@ const Routes = () => {
                     <Switch>
                         <Route exact path="/" component={Home}/>
                         <Route exact path="/add" component={Add}/>
+                        <Route exact path="/cart" component={Cart}/>
                         <Route exact path="/edit/:id" component={Edit}/>
                         <Route exact path="/detail/:id" component={Detail}/>
                         <Route exact path="/login" component={Login}/>

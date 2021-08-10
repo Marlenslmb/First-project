@@ -82,7 +82,7 @@ const Sortirovka = () => {
 
   return (
     <div>
-      <Button onClick={handleClickOpen}>Открыть сортировку</Button>
+      <Button onClick={handleClickOpen} style={{backgroundColor: '#f50057'}}>Открыть сортировку</Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Выберите категорию</DialogTitle>
         <DialogContent>

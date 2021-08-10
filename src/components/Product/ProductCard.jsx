@@ -8,12 +8,18 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { mailContext } from '../contexts/MailContext';
 import { useEffect } from 'react';
-import AOS from 'aos'
+import AOS from 'aos';
+import { IconButton } from '@material-ui/core';
 
 export default function ProductCard({item, history}) {
   const {deleteProduct, editProduct,} = useContext(productContext)
   // const { clientLogin } = useContext(mailContext)
   const [isAdmin, setIsAdmin] = useState(false)
+
+
+export default function ProductCard({item, history}) {
+  const {deleteProduct, editProduct, addProductInCard, checkProductInCart} = useContext(productContext)
+
   const [open, setOpen] = React.useState(false);
   const admin = 'admin@gmail.com'
 
@@ -86,6 +92,12 @@ export default function ProductCard({item, history}) {
             Подробнее...
           </Button>
         </Link>
+        <IconButton
+          aria-label="share" 
+          onClick={() => addProductInCard(item)}
+          color={checkProductInCart(item.id) ? "secondary" : "light"}>
+           &#10010;
+        </IconButton>
       </Card.Link>
     </Card.Body>
   </Card>
