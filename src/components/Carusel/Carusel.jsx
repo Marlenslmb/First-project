@@ -18,7 +18,7 @@ const tutorialSteps = [
       'https://images.wallpaperscraft.ru/image/kniga_stranica_listya_82167_1920x1080.jpg',
   },
   {
-    label: 'Bird',
+    label: 'BOOK',
     imgPath:
       'https://images.wallpaperscraft.ru/image/kniga_nadpis_tekst_154956_1920x1080.jpg',
   },
@@ -33,34 +33,34 @@ const tutorialSteps = [
       'https://img3.akspic.ru/originals/8/1/9/5/2/125918-gimalajskaya_koshka-murlykane-koshachih-son-kot-1920x1080.jpg',
   },
   {
-    label: 'ShakSpeare',
+    label: 'Clock',
     imgPath:
-      'https://images5.alphacoders.com/389/thumbbig-389872.webp',
+      'https://cdn.wallpapersafari.com/59/29/p97sEt.jpg',
   },
   {
-    label: '6',
+    label: 'Library',
     imgPath:
-      'https://st2.depositphotos.com/1105977/5461/i/950/depositphotos_54615585-stock-photo-old-books-on-wooden-table.jpg',
+      'https://cdna.artstation.com/p/assets/images/images/025/569/566/large/conor-powers-stout-powers-stout-conor-interior-render.jpg?1586215256',
   },
   {
-    label: '7',
+    label: 'Nature',
     imgPath:
       'https://st.depositphotos.com/1779860/1683/i/950/depositphotos_16833415-stock-photo-the-book.jpg',
   },
   {
-    label: '8',
+    label: 'Library',
     imgPath:
       'https://wpapers.ru/wallpapers/All/11497/1920x1080_%D0%9A%D0%BD%D0%B8%D0%B6%D0%BD%D1%8B%D0%B5-%D0%BF%D0%BE%D0%BB%D0%BA%D0%B8.jpg',
   },
   {
-    label: '9',
+    label: 'BOOK',
     imgPath:
       'https://storge.pic2.me/c/1360x800/601/5f0b6d9c1a9534.07993924.jpg',
   },
   {
-    label: 'Where are you',
+    label: 'Alice',
     imgPath:
-      'https://st2.depositphotos.com/1064024/8660/i/950/depositphotos_86609726-stock-photo-book-city.jpg',
+      'https://www.cashadvance6online.com/data/archive/img/830955274.jpeg',
   },
 ];
 
@@ -69,13 +69,15 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '100%',
     flexGrow: 1,
     margin: '0 auto',
+    backgroundColor: '#505050'
+    
   },
   header: {
     display: 'flex',
     alignItems: 'center',
     height: 50,
     paddingLeft: theme.spacing(4),
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: '#505050'
   },
   img: {
     height: 580,

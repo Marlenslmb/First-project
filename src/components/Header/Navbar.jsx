@@ -20,8 +20,6 @@ import { useContext } from 'react';
 import { productContext } from '../contexts/ProductContext';
 import { Link } from 'react-router-dom';
 import './navbar.css'
-import { Form } from 'react-bootstrap';
-import { filterContext } from '../contexts/Filter';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -96,7 +94,7 @@ export default function Navbar() {
   const [searchVal, setSearchVal] = useState(getSearchVal() || '')
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-  const { getProducts } = useContext(productContext)
+  const { getProducts, cartLength } = useContext(productContext)
 
   function getSearchVal(){
     const search = new URLSearchParams(history.location.search)
@@ -216,11 +214,13 @@ export default function Navbar() {
                 &#10010;
               </IconButton>
             </Link>
-          <IconButton color="secondary">
-                <Badge>
+            <Link to="/cart">
+              <IconButton color="secondary">
+                <Badge badgeContent={cartLength}>
                   <ShoppingBasketIcon/>
                 </Badge>
               </IconButton>
+            </Link>
             <IconButton
               edge="end"
               aria-label="account of current user"

@@ -5,10 +5,11 @@ import React from 'react';
 import './Product.css';
 import Edit from '../CRUD/Edit'
 import { Link } from 'react-router-dom';
+import { IconButton } from '@material-ui/core';
 
 
 export default function ProductCard({item, history}) {
-  const {deleteProduct, editProduct,} = useContext(productContext)
+  const {deleteProduct, editProduct, addProductInCard, checkProductInCart} = useContext(productContext)
 
   const [open, setOpen] = React.useState(false);
 
@@ -46,7 +47,7 @@ export default function ProductCard({item, history}) {
       </Card.Link>
       <Card.Link >
         <Button aria-label="share" onClick={() => deleteProduct(item.id, history)} style={{backgroundColor: 'rgba(19, 16, 16, 0.932)'}}>
-          &#10060;
+        &#128465;
         </Button>
       </Card.Link>
       <Card.Link style={{color: 'black', textDecoration: 'none'}}>
@@ -55,6 +56,12 @@ export default function ProductCard({item, history}) {
             Подробнее...
           </Button>
         </Link>
+        <IconButton
+          aria-label="share" 
+          onClick={() => addProductInCard(item)}
+          color={checkProductInCart(item.id) ? "secondary" : "light"}>
+           &#10010;
+        </IconButton>
       </Card.Link>
     </Card.Body>
   </Card>
