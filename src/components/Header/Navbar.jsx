@@ -20,13 +20,7 @@ import { useContext } from 'react';
 import { productContext } from '../contexts/ProductContext';
 import { Link } from 'react-router-dom';
 import './navbar.css'
-<<<<<<< HEAD
-import { Form } from 'react-bootstrap';
-import { filterContext } from '../contexts/Filter';
-import { mailContext } from '../contexts/MailContext';
-import { useEffect } from 'react';
-=======
->>>>>>> 0cd296fac0e61569d5a50ba60cdb855247fb1ca8
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -196,9 +190,11 @@ export default function Navbar() {
     <div className={classes.grow}>
       <AppBar position="static" style={{background: 'rgba(19, 16, 16, 0.932)'}}>
         <Toolbar>
+          <Link to='/'>
               <Typography className={classes.title} variant="h5" noWrap color="secondary">
                     LIBRARY
               </Typography>
+          </Link>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -218,14 +214,14 @@ export default function Navbar() {
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
           <Link to='/add'>
-              <IconButton color="secondary">
+              <IconButton color="secondary" style={{marginBottom: 3}}>
                 &#10010;
               </IconButton>
             </Link>
             <Link to="/cart">
               <IconButton color="secondary">
                 <Badge badgeContent={cartLength}>
-                  <ShoppingBasketIcon/>
+                  <ShoppingBasketIcon style={{marginTop: 7}}/>
                 </Badge>
               </IconButton>
             </Link>

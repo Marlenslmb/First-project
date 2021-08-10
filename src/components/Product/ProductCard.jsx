@@ -10,18 +10,13 @@ import { mailContext } from '../contexts/MailContext';
 import { useEffect } from 'react';
 import AOS from 'aos';
 import { IconButton } from '@material-ui/core';
-
+    
 export default function ProductCard({item, history}) {
-  const {deleteProduct, editProduct,} = useContext(productContext)
-  // const { clientLogin } = useContext(mailContext)
-  const [isAdmin, setIsAdmin] = useState(false)
-
-
-export default function ProductCard({item, history}) {
-  const {deleteProduct, editProduct, addProductInCard, checkProductInCart} = useContext(productContext)
-
-  const [open, setOpen] = React.useState(false);
-  const admin = 'admin@gmail.com'
+    const {deleteProduct, editProduct, addProductInCard, checkProductInCart} = useContext(productContext)
+    
+    const [open, setOpen] = React.useState(false);
+    const admin = 'admin@gmail.com'
+    const [isAdmin, setIsAdmin] = useState(false)
 
   useEffect(() => {
     AOS.init({
