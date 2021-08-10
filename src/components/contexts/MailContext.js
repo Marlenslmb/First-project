@@ -31,6 +31,7 @@ const MailContext = ({children}) => {
         console.log(clientLogin)
         try{
             let datas = await axios.post(`${AUTHOR_API}/login`, clientLogin)
+            localStorage.setItem('user', clientLogin.email)
             history.push('/')
         }catch(e){
             alert('ERRRROORRR')

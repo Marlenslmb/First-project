@@ -5,12 +5,25 @@ import React from 'react';
 import './Product.css';
 import Edit from '../CRUD/Edit'
 import { Link } from 'react-router-dom';
-
+import { useState } from 'react';
+import { mailContext } from '../contexts/MailContext';
+import { useEffect } from 'react';
+import AOS from 'aos'
 
 export default function ProductCard({item, history}) {
   const {deleteProduct, editProduct,} = useContext(productContext)
-
+  // const { clientLogin } = useContext(mailContext)
+  const [isAdmin, setIsAdmin] = useState(false)
   const [open, setOpen] = React.useState(false);
+  const admin = 'admin@gmail.com'
+
+  useEffect(() => {
+    AOS.init({
+      duration : 2000
+    });
+  }, []);
+  
+
 
   const handleOpen = () => {
     setOpen(true);
@@ -21,7 +34,20 @@ export default function ProductCard({item, history}) {
     setOpen(false);
   };
 
+  useEffect(() => {
+    let user = localStorage.getItem('user')
+    if(user){
+      if(user === admin){
+        setIsAdmin(true)
+      }
+    }
+  }, [])
+
+
   return (
+    <div data-aos="flip-left"
+    data-aos-easing="ease-out-cubic"
+    >
     <Card style={{ width: '20rem' }} >
     <Card.Img variant="top" style={{width: '165px', margin: '0 auto',}} src={item.image} />
     <Card.Body>
@@ -38,17 +64,22 @@ export default function ProductCard({item, history}) {
       <ListGroupItem>Цена: {item.price}р.</ListGroupItem> 
     </ListGroup>
     <Edit open={open} handleClose={handleClose} handleOpen={handleOpen} />
-    <Card.Body>
-      <Card.Link  style={{color: 'black', textDecoration: 'none'}}>
+    {
+      isAdmin ? (<Card.Body>
+        <Card.Link  style={{color: 'black', textDecoration: 'none'}}>
         <Button onClick={()=>handleOpen()} style={{backgroundColor: 'rgba(19, 16, 16, 0.932)'}}>
           &#9997;
         </Button>
       </Card.Link>
       <Card.Link >
-        <Button aria-label="share" onClick={() => deleteProduct(item.id, history)} style={{backgroundColor: 'rgba(19, 16, 16, 0.932)'}}>
-          &#10060;
-        </Button>
-      </Card.Link>
+      <Button aria-label="share" onClick={() => deleteProduct(item.id, history)} style={{backgroundColor: 'rgba(19, 16, 16, 0.932)'}}>
+        &#10060;
+      </Button>
+    </Card.Link>
+    </Card.Body>
+      ) : (null)
+    }
+    <Card.Body>
       <Card.Link style={{color: 'black', textDecoration: 'none'}}>
         <Link to={`/detail/${item.id}`}>
           <Button style={{backgroundColor: 'rgba(19, 16, 16, 0.932)'}}>
@@ -58,5 +89,6 @@ export default function ProductCard({item, history}) {
       </Card.Link>
     </Card.Body>
   </Card>
+  </div>
   )
 }

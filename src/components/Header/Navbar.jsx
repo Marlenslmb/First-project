@@ -22,6 +22,8 @@ import { Link } from 'react-router-dom';
 import './navbar.css'
 import { Form } from 'react-bootstrap';
 import { filterContext } from '../contexts/Filter';
+import { mailContext } from '../contexts/MailContext';
+import { useEffect } from 'react';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -97,6 +99,7 @@ export default function Navbar() {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
   const { getProducts } = useContext(productContext)
+
 
   function getSearchVal(){
     const search = new URLSearchParams(history.location.search)

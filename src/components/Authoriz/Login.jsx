@@ -50,8 +50,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Login() {
-    const history = useHistory()
   const classes = useStyles();
+  const history = useHistory()
 
   const { clientLogin } = useContext(mailContext)
 
