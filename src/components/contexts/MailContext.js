@@ -34,7 +34,7 @@ const MailContext = ({children}) => {
             localStorage.setItem('user', clientLogin.email)
             history.push('/')
         }catch(e){
-            alert('ERRRROORRR')
+            alert('Неправильный Login или Пароль...')
         }
     }
 

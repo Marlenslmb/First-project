@@ -49,13 +49,14 @@ export default function ProductCard({item, history}) {
     <div data-aos="flip-left"
     data-aos-easing="ease-out-cubic"
     >
-    <Card style={{ width: '20rem' }} >
-    <Card.Img variant="top" style={{width: '165px', margin: '0 auto',}} src={item.image} />
+    <Card style={{ width: '22rem' }} >
+    <Card.Img variant="top" style={{width: '165px', margin: '0 auto', height: "200px"}} src={item.image} />
     <Card.Body>
       <Card.Title>
           {item.title}
       </Card.Title>
-      <Card.Text>
+      <Card.Text  className="textDescr" >
+        
         {item.description.substring(0, 100)}...
       </Card.Text>
     </Card.Body>
