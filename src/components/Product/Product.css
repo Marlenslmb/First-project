@@ -1,9 +1,20 @@
 .card{
     margin: 20px 5px;
+    box-sizing: border-box;
 }
 .card:hover {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
     transition: 1s;
+}
+.card-img-top{
+    width: 165px;
+    margin: 0 auto;
+}
+.card-body{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 5px;
 }
