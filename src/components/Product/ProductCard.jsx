@@ -66,7 +66,7 @@ export default function ProductCard({item, history}) {
       <ListGroupItem>Цена: {item.price}р.</ListGroupItem> 
     </ListGroup>
     <Edit open={open} handleClose={handleClose} handleOpen={handleOpen} />
-    <Card.Body style={{flex: 1}}>
+    <Card.Body style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
       {
         isAdmin ? (
           <div>
