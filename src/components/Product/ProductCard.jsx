@@ -49,14 +49,14 @@ export default function ProductCard({item, history}) {
     <div data-aos="flip-left"
     data-aos-easing="ease-out-cubic"
     >
-    <Card style={{ width: '20rem', height: 600}} >
-    
-    <Card.Img variant="top" style={{width: '165px', margin: '0 auto', height: 200}} src={item.image} />
-    <Card.Body style={{flexGrow: 1, flexDirection: 'column'}}>
+    <Card style={{ width: '21rem' }} >
+    <Card.Img variant="top" style={{width: '165px', margin: '0 auto', height: "200px"}} src={item.image} />
+    <Card.Body>
       <Card.Title>
           {item.title}
       </Card.Title>
-      <Card.Text style={{flexGrow: 1}}>
+      <Card.Text  className="textDescr" >
+        
         {item.description.substring(0, 100)}...
       </Card.Text>
     </Card.Body>
@@ -66,24 +66,9 @@ export default function ProductCard({item, history}) {
       <ListGroupItem>Цена: {item.price}р.</ListGroupItem> 
     </ListGroup>
     <Edit open={open} handleClose={handleClose} handleOpen={handleOpen} />
-    {/* {
-      isAdmin ? (<Card.Body style={{flex: 1}}>
-        <Card.Link  style={{color: 'black', textDecoration: 'none'}}>
-        <Button onClick={()=>handleOpen()} style={{backgroundColor: 'rgba(19, 16, 16, 0.932)'}}>
-          &#9997;
-        </Button>
-      </Card.Link>
-      <Card.Link >
-      <Button aria-label="share" onClick={() => deleteProduct(item.id, history)} style={{backgroundColor: 'rgba(19, 16, 16, 0.932)'}}>
-        &#10060;
-      </Button>
-    </Card.Link>
-    </Card.Body>
-      ) : (null)
-    } */}
-    <Card.Body style={{flex: 1, flexDirection: 'column'}}>
+    <Card.Body style={{flex: 1}}>
       {
-        isAdmin && (
+        isAdmin ? (
           <div>
             <Card.Link  style={{color: 'black', textDecoration: 'none'}}>
               <Button onClick={()=>handleOpen()} style={{backgroundColor: 'rgba(19, 16, 16, 0.932)'}}>
@@ -96,7 +81,7 @@ export default function ProductCard({item, history}) {
             </Button>
           </Card.Link>  
          </div>
-        )
+        ) : (null)
       }
       <Card.Link style={{color: 'black', textDecoration: 'none'}}>
         <Link to={`/detail/${item.id}`}>

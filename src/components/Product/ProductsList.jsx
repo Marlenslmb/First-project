@@ -31,7 +31,9 @@ const ProductList = () => {
         history.push(`${history.location.pathname}?${search.toString()}`)
         getProducts(history)
         setPage(pageVal)
+        window.scrollTo({top: 0, behavior: 'smooth'})
         
+    
     }
     console.log(page)
     return (

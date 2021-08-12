@@ -19,7 +19,7 @@ const MailContext = ({children}) => {
             }
             history.push('/login')
         }catch(e){
-            alert("Ошибка...")
+            alert("Такой логин уже есть!")
         }
     }
     async function clientLogin (e, history) {
@@ -34,7 +34,21 @@ const MailContext = ({children}) => {
             localStorage.setItem('user', clientLogin.email)
             history.push('/')
         }catch(e){
-            alert('ERRRROORRR')
+            alert('Неправильный Login или Пароль...')
+        }
+    }
+
+    async function clientLogout(e, history){
+        e.preventDefault();
+        const clientLogout = {
+            
+        }
+        try{
+            let data = await axios.get(`${AUTHOR_API}/login`, clientLogout)
+            localStorage.removeItem('user', clientLogout)
+            history.push('/')
+        }catch(e){
+            alert('Неправильно')
         }
     }
 
@@ -47,7 +61,8 @@ const MailContext = ({children}) => {
     return (
         <mailContext.Provider value = {{
             clientLogin,
-            clientRegister 
+            clientRegister,
+            clientLogout
         }}>
             {children}
         </mailContext.Provider>

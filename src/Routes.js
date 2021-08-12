@@ -10,6 +10,7 @@ import Login from './components/Authoriz/Login';
 import MailContext from './components/contexts/MailContext';
 import Registration from './components/Authoriz/Registration';
 import Cart from './components/Korzina/Korzina';
+import Footer from './components/Footer/Footer'
 
 const Routes = () => {
     return (
@@ -27,6 +28,7 @@ const Routes = () => {
                         <Route exact path="/registration" component={Registration}/>
 
                     </Switch>
+                    <Footer />
                 </BrowserRouter>
 
             </ProductContextProvider>

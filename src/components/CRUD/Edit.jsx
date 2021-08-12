@@ -23,11 +23,12 @@ function getModalStyle() {
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: 'absolute',
-    width: 400,
+    width: 350,
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+    backgroundColor: 'whitesmoke'
   },
 }));
 
@@ -59,7 +60,7 @@ export default function Edit({open, handleClose}) {
 
     const body = (
       <div style={modalStyle} className={classes.paper} ref={rootRef}>
-            <h2 id="server-modal-title">Изменить данные</h2>
+            <h4 id="server-modal-title">Изменить данные</h4>
             {
                 values ? (
                     <form className={classes.root} noValidate autoComplete="off">
