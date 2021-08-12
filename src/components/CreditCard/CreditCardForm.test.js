@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
-import CreditCardForm from "./CreditCardForm";
+import CreditCardForm from "./CreditCardForm.test";
 import validateInfo from "./../validateInfo";
 
 const valid_values = {
