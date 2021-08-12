@@ -6,7 +6,6 @@ import './Product.css';
 import Edit from '../CRUD/Edit'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { mailContext } from '../contexts/MailContext';
 import { useEffect } from 'react';
 import AOS from 'aos';
 import { IconButton } from '@material-ui/core';

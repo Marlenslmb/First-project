@@ -195,8 +195,10 @@ export default function Navbar() {
                     LIBRARY
               </Typography>
           </Link>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
+          <div className={classes.grow}/>
+          <div className={classes.sectionDesktop}>
+          <div className={classes.search} style={{height: '35px',marginTop: '14px'}}>
+            <div className={classes.searchIcon} >
               <SearchIcon />
             </div>
             <InputBase
@@ -211,8 +213,6 @@ export default function Navbar() {
               className="poisk"
             />
           </div>
-          <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
           <Link to='/add' style={{textDecoration: 'none'}}>
               <IconButton color="secondary" style={{marginBottom: 3}}>
                 &#10010;
