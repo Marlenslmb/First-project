@@ -10,6 +10,7 @@ import Paper from '@material-ui/core/Paper';
 import { Button, Typography } from '@material-ui/core';
 import { productContext } from '../contexts/ProductContext';
 import { calcTotalPrice } from './CalcPrice';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     table: {
@@ -72,7 +73,9 @@ const Cart = () => {
           </TableRow>
           <TableRow >
           <TableCell colSpan={3} align="right">
-              <Button variant="contained" color="primary">Купить</Button>
+              <Link to="/payment">
+                <Button variant="contained" color="primary">Купить</Button>
+              </Link>
           </TableCell>
           </TableRow>
         </TableBody>

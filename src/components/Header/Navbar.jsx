@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { alpha, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -20,7 +20,6 @@ import { useContext } from 'react';
 import { productContext } from '../contexts/ProductContext';
 import { Link } from 'react-router-dom';
 import './navbar.css'
-import { mailContext } from '../contexts/MailContext';
 
 
 
@@ -97,16 +96,7 @@ export default function Navbar() {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
   const { getProducts, cartLength } = useContext(productContext)
-  const [ isUser, setIsUser] = useState(true)
-  const { clientLogout } = useContext(mailContext)
 
-  
-  useEffect(() => {
-    let user = localStorage.getItem('user')
-    if(user){
-      setIsUser(false)
-    }
-  }, [])
 
   function getSearchVal(){
     const search = new URLSearchParams(history.location.search)
@@ -140,7 +130,6 @@ export default function Navbar() {
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
-    
     <Menu
       anchorEl={anchorEl}
       anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
@@ -152,7 +141,6 @@ export default function Navbar() {
     >
       <Link to='/registration'><MenuItem className='buttons' color='secondary'>Регистрация</MenuItem></Link>
       <Link to='/login'><MenuItem onClick={handleMenuClose} className='buttons' color='secondary'>Войти</MenuItem></Link>
-      <MenuItem onClick={clientLogout} className='buttons' color='secondary'>Выйти</MenuItem>
       <MenuItem onClick={handleMenuClose} className='buttons' color='secondary'>&#10006;</MenuItem>
     </Menu>
   );
@@ -203,7 +191,7 @@ export default function Navbar() {
       <AppBar position="static" style={{background: 'rgba(19, 16, 16, 0.932)'}}>
         <Toolbar>
           <Link to='/' style={{textDecoration: 'none'}}>
-              <Typography className={classes.title} variant="h5" noWrap color="secondary">
+              <Typography className={classes.title} variant="h5" noWrap color="secondary" >
                     LIBRARY
               </Typography>
           </Link>
@@ -262,7 +250,7 @@ export default function Navbar() {
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
-       {renderMenu}
+      {renderMenu}
     </div>
   );
 }

@@ -11,6 +11,7 @@ import MailContext from './components/contexts/MailContext';
 import Registration from './components/Authoriz/Registration';
 import Cart from './components/Korzina/Korzina';
 import Footer from './components/Footer/Footer'
+import CreditCardForm from './components/CreditCard/CreditCardForm';
 
 const Routes = () => {
     return (
@@ -26,6 +27,7 @@ const Routes = () => {
                         <Route exact path="/detail/:id" component={Detail}/>
                         <Route exact path="/login" component={Login}/>
                         <Route exact path="/registration" component={Registration}/>
+                        <Route exact path="/payment" component={CreditCardForm}/>
 
                     </Switch>
                     <Footer />
