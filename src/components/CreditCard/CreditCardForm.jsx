@@ -5,7 +5,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./CreditCard.css";
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
-import { Link } from "react-router-dom";
 
 
 const CreditCardForm = () => {
@@ -115,7 +114,6 @@ const CreditCardForm = () => {
                 </Form.Group>
               </Col>
             </Row>
-            <Link to="/">
             <Button
               size={"block"}
               data-testid="validateButton"
@@ -124,7 +122,6 @@ const CreditCardForm = () => {
             >
               Validate
             </Button>
-            </Link>
           </Form>
           </div>
           <Alert
